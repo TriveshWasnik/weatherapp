@@ -1,0 +1,16 @@
+Deploy React Project on Git-hub
+==================================
+
+step 1 : Install gh-pages package
+    F:\weatherapp>npm i -D gh-pages
+
+step 2 : add line Package.json file
+    "homepage": "https://TriveshWasnik.github.io/<RepositoryName>",
+
+step 3 : add line package.json file
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+
+step 4 : npm run predeploy
+step 5 : npm run deploy
+    
