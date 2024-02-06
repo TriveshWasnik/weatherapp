@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 function Weather() {
   const [city, setCity] = useState("");
@@ -19,26 +19,32 @@ function Weather() {
       <div className="search-city">
         <input
           id="searchCity"
-          placeholder="search"
+          placeholder="Enter Search City"
           onChange={(e) => setCity(e.target.value)}
           onClick={() => getWeather()}
         />
       </div>
-      <div className="temp">
-        {data?.main?.temp}
-        <sup>o</sup>C
-      </div>
-      <div className="city">{data?.name}</div>
-      <div className="humidity-wind">
-        <div className="humidity">
-          <div>{data?.main?.humidity}%</div>
-          <div>Humidity</div>
-        </div>
-        <div className="wind">
-          <div>{data?.wind?.speed} km/h</div>
-          <div>Wind Speed</div>
-        </div>
-      </div>
+      {city !== "" ? (
+        <>
+          <div className="temp">
+            {data?.main?.temp}
+            <sup>o</sup>C
+          </div>
+          <div className="city">{data?.name}</div>
+          <div className="humidity-wind">
+            <div className="humidity">
+              <div>{data?.main?.humidity}%</div>
+              <div>Humidity</div>
+            </div>
+            <div className="wind">
+              <div>{data?.wind?.speed} km/h</div>
+              <div>Wind Speed</div>
+            </div>
+          </div>
+        </>
+      ) : (
+        ""
+      )}
     </div>
   );
 }
